@@ -54,30 +54,32 @@ const (
 )
 
 var (
+	// see https://accounts.google.com/.well-known/openid-configuration
+
 	// Default Login URL for Google.
-	// Pre-parsed URL of https://accounts.google.com/o/oauth2/auth?access_type=offline.
+	// Pre-parsed URL of https://accounts.google.com/o/oauth2/v2/auth?access_type=offline.
 	googleDefaultLoginURL = &url.URL{
 		Scheme: "https",
 		Host:   "accounts.google.com",
-		Path:   "/o/oauth2/auth",
-		// to get a refresh token. see https://developers.google.com/identity/protocols/OAuth2WebServer#offline
+		Path:   "/o/oauth2/v2/auth",
+		// to get a refresh token. see https://developers.google.com/identity/protocols/oauth2/web-server#offline
 		RawQuery: "access_type=offline",
 	}
 
 	// Default Redeem URL for Google.
-	// Pre-parsed URL of https://www.googleapis.com/oauth2/v3/token.
+	// Pre-parsed URL of https://oauth2.googleapis.com/token.
 	googleDefaultRedeemURL = &url.URL{
 		Scheme: "https",
-		Host:   "www.googleapis.com",
-		Path:   "/oauth2/v3/token",
+		Host:   "oauth2.googleapis.com",
+		Path:   "/token",
 	}
 
 	// Default Validation URL for Google.
-	// Pre-parsed URL of https://www.googleapis.com/oauth2/v1/tokeninfo.
+	// Pre-parsed URL of https://openidconnect.googleapis.com/v1/userinfo.
 	googleDefaultValidateURL = &url.URL{
 		Scheme: "https",
-		Host:   "www.googleapis.com",
-		Path:   "/oauth2/v1/tokeninfo",
+		Host:   "openidconnect.googleapis.com",
+		Path:   "/v1/userinfo",
 	}
 )
 
